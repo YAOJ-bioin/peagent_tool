@@ -1,0 +1,4 @@
+interface:
+  display_name: "PEAgent Tool Maintainer"
+  short_description: "Maintain peagent_tool code, docs, and GitHub sync"
+  default_prompt: "Use $peagent-tool-maintainer to add or modify a peagent_tool feature with tests, docs, and GitHub sync."
