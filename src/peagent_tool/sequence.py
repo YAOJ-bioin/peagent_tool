@@ -8,7 +8,6 @@ from typing import Iterable, List, Mapping, Sequence, Tuple, Union
 
 import numpy as np
 
-
 INPUT_LEN = 1344
 _VALID_BASES = set("ACGTN")
 
@@ -106,8 +105,8 @@ def _coerce_sequence_items(
         else:
             try:
                 sequence_id, seq = item
-            except (TypeError, ValueError):
-                raise TypeError("Sequence iterable items must be strings or (sequence_id, sequence) pairs.")
+            except (TypeError, ValueError) as exc:
+                raise TypeError("Sequence iterable items must be strings or (sequence_id, sequence) pairs.") from exc
             raw_records.append((str(sequence_id), str(seq)))
     return raw_records
 

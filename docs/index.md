@@ -1,16 +1,13 @@
-# Welcome to PEAgent's documentation!
+# PEAgent Tool
+
+Plant epigenomics utilities for sequence-level prediction and attribution.
 
 ## Contents
 
-- [Readme](readme.md)
 - [Installation](installation.md)
 - [Usage](usage.md)
-- [Modules](modules.md)
-- [Contributing](contributing.md)
-- [History](history.md)
+- [ISM Attribution Tutorial](tutorials/ism-attribution.md)
 
-## Indices and tables
-
-- [Index](genindex)
-- [Module Index](modindex)
-- [Search](search)
+Runtime models and metadata are loaded from `/opt/peagent/backend` by default.
+No model weights, metadata dumps, genomes, or environments are included in the
+Python package or documentation.

@@ -15,6 +15,7 @@ Plant Epigenomics prediction utilities for PEAgent.
 * Supports two prediction modes:
   * `exact`: predicts every model cell output and averages probabilities within each valid `tissue_celltype`.
   * `fast`: aggregates the final cell-level Dense logits to `tissue_celltype` outputs before sigmoid; this is faster at prediction time but approximate.
+* Compute ISM attribution maps for a reference sequence at global or valid `tissue_celltype` level.
 
 ## Usage
 
@@ -54,6 +55,38 @@ peagent-tool predict-celltypes --species soybean --sequence "$(python - <<'PY'
 print("ACGT" * 336)
 PY
 )" --mode exact --top-k 20
+```
+
+ISM attribution maps:
+
+```python
+from peagent_tool import compute_and_plot_ism_attribution
+
+result, paths = compute_and_plot_ism_attribution(
+    "ACGT" * 336,
+    species="maize",
+    target="global",
+    out_prefix="maize_global_ism",
+    plot_start=600,
+    plot_end=690,
+)
+print(paths["pdf"])
+```
+
+```bash
+peagent-tool ism-attribution \
+  --species maize \
+  --sequence "$(python -c 'print("ACGT" * 336)')" \
+  --target global \
+  --plot-start 600 \
+  --plot-end 690 \
+  --out-prefix maize_global_ism
+```
+
+Install plotting support with:
+
+```bash
+pip install "peagent-tool[ism]"
 ```
 
 Run in an environment that can import TensorFlow. The package vendors the minimal

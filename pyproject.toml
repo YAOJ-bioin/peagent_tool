@@ -23,12 +23,23 @@ requires-python = ">= 3.8"
 prediction = [
     "tensorflow-cpu==2.13.1",
 ]
+ism = [
+    "tensorflow-cpu==2.13.1",
+    "matplotlib",
+    "logomaker",
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+]
 test = [
     "coverage",  # testing
     "pytest",  # testing
     "ruff",  # linting
     "ty", # checking types
     "ipdb", # debugging
+    "matplotlib", # ISM plotting tests
+    "logomaker", # ISM plotting tests
 ]
 
 [project.urls]
@@ -46,6 +57,7 @@ peagent-tool = "peagent_tool.cli:main"
 
 [tool.ruff]
 line-length = 120
+target-version = "py38"
 
 [tool.ruff.lint]
 select = [
@@ -55,6 +67,12 @@ select = [
     "I",   # isort
     "B",   # flake8-bugbear
     "UP",  # pyupgrade
+]
+ignore = [
+    "UP006",  # keep typing aliases compatible with the current Python 3.8 support floor
+    "UP007",  # keep Union annotations instead of Python 3.10-only | syntax
+    "UP031",  # preserve existing percent-format messages until a broader style cleanup
+    "UP045",  # keep Optional annotations instead of Python 3.10-only | None syntax
 ]
 
 [tool.uv]

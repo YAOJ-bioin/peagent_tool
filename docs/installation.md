@@ -14,6 +14,18 @@ Or if you prefer to use `pip`:
 pip install peagent-tool
 ```
 
+Install model prediction support with TensorFlow:
+
+```sh
+pip install "peagent-tool[prediction]"
+```
+
+Install ISM attribution and plotting support:
+
+```sh
+pip install "peagent-tool[ism]"
+```
+
 ## From source
 
 The source files for PEAgent Tool can be downloaded from the [GitHub repo](https://github.com/YAOJ-bioin/peagent_tool).

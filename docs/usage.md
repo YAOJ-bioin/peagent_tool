@@ -30,3 +30,38 @@ To use PEAgent Tool in a project:
 ```python
 import peagent_tool
 ```
+
+## ISM attribution maps
+
+Use ISM attribution when you want a sequence-logo style attribution map for one
+reference sequence and one target. The target can be `global` or one exact valid
+`tissue_celltype` shown by `peagent-tool list-celltypes`.
+
+```python
+from peagent_tool import compute_and_plot_ism_attribution
+
+result, paths = compute_and_plot_ism_attribution(
+    "ACGT" * 336,
+    species="maize",
+    target="global",
+    out_prefix="maize_global_ism",
+    plot_start=600,
+    plot_end=690,
+)
+print(paths["pdf"])
+```
+
+```bash
+peagent-tool ism-attribution \
+  --species maize \
+  --sequence "$(python -c 'print("ACGT" * 336)')" \
+  --target global \
+  --plot-start 600 \
+  --plot-end 690 \
+  --out-prefix maize_global_ism
+```
+
+The command writes `maize_global_ism.pdf` and `maize_global_ism.png`.
+`--plot-start` and `--plot-end` are 1-based positions on the normalized 1344 bp
+model input. `--position-offset` shifts the x-axis labels when you want to show
+local sequence coordinates.

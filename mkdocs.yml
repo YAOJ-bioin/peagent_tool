@@ -1,0 +1,22 @@
+site_name: PEAgent Tool
+site_url: https://peagent-tool.readthedocs.io/
+repo_url: https://github.com/YAOJ-bioin/peagent_tool
+repo_name: YAOJ-bioin/peagent_tool
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Tutorials:
+      - ISM Attribution: tutorials/ism-attribution.md

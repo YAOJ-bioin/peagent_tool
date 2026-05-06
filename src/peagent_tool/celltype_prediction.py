@@ -14,7 +14,6 @@ import pandas as pd
 
 from .sequence import INPUT_LEN, SequenceRecord, onehot_from_normalized_sequence, parse_sequences
 
-
 BOTTLENECK_SIZE = 64
 DEFAULT_BATCH_SIZE = 32
 DEFAULT_BACKEND_ROOT = Path(os.environ.get("PEAGENT_BACKEND_ROOT", "/opt/peagent/backend"))
