@@ -1,0 +1,61 @@
+[project]
+name = "peagent-tool"
+version = "0.1.0"
+description = "Plant Epigenomics agent and foundation module"
+readme = "README.md"
+authors = [
+  {name = "Jie Yao", email = "JieYao@uga.edu"}
+]
+maintainers = [
+  {name = "Jie Yao", email = "JieYao@uga.edu"}
+]
+classifiers = [
+    # TODO
+]
+license = {text = "MIT"}
+dependencies = [
+  "numpy",
+  "pandas",
+]
+requires-python = ">= 3.8"
+
+[project.optional-dependencies]
+prediction = [
+    "tensorflow-cpu==2.13.1",
+]
+test = [
+    "coverage",  # testing
+    "pytest",  # testing
+    "ruff",  # linting
+    "ty", # checking types
+    "ipdb", # debugging
+]
+
+[project.urls]
+bugs = "https://github.com/YAOJ-bioin/peagent_tool/issues"
+changelog = "https://github.com/YAOJ-bioin/peagent_tool/blob/main/changelog.md"
+homepage = "https://github.com/YAOJ-bioin/peagent_tool"
+
+[project.scripts]
+peagent-tool = "peagent_tool.cli:main"
+
+[tool.ty]
+# All rules are enabled as "error" by default; no need to specify unless overriding.
+# Example override: relax a rule for the entire project (uncomment if needed).
+# rules.TY015 = "warn"  # For invalid-argument-type, warn instead of error.
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+
+[tool.uv]
+package = true
